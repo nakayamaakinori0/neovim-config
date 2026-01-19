@@ -4,25 +4,15 @@ local function map(mode, after, before, desc)
   vim.keymap.set(mode, after, before, desc)
 end
 
+-- Basic keymaps
+map("n", "<leader>w", ":w<cr>", { desc = "Save file" })
+map("n", "<leader>q", ":q<cr>", { desc = "Quit window" })
+
 -- Window navigation
 map("n", "<C-h>", "<C-w>h", { desc = "Go to left window" })
 map("n", "<C-j>", "<C-w>j", { desc = "Go to lower window" })
 map("n", "<C-k>", "<C-w>k", { desc = "Go to upper window" })
 map("n", "<C-l>", "<C-w>l", { desc = "Go to right window" })
-
--- Resize window using <ctrl> arrow keys
-map("n", "<C-Up>", "<cmd>resize +2<cr>", { desc = "Increase window height" })
-map("n", "<C-Down>", "<cmd>resize -2<cr>", { desc = "Decrease window height" })
-map("n", "<C-Left>", "<cmd>vertical resize -2<cr>", { desc = "Decrease window width" })
-map("n", "<C-Right>", "<cmd>vertical resize +2<cr>", { desc = "Increase window width" })
-
--- Move Lines
-map("n", "<A-j>", "<cmd>m .+1<cr>==", { desc = "Move down" })
-map("n", "<A-k>", "<cmd>m .-2<cr>==", { desc = "Move up" })
-map("i", "<A-j>", "<esc><cmd>m .+1<cr>==gi", { desc = "Move down" })
-map("i", "<A-k>", "<esc><cmd>m .-2<cr>==gi", { desc = "Move up" })
-map("v", "<A-j>", ":m '>+1<cr>gv=gv", { desc = "Move down" })
-map("v", "<A-k>", ":m '<-2<cr>gv=gv", { desc = "Move up" })
 
 -- Buffers
 map("n", "<leader>bl", ":Neotree buffers<CR>", { desc = "List Buffers" })
@@ -45,10 +35,8 @@ map("n", "<leader>xq", "<cmd>copen<cr>", { desc = "Quickfix List" })
 -- map("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostics list" })
 
 -- Windows
-map("n", "<leader>ww", "<C-W>p", { desc = "Other window", remap = true })
-map("n", "<leader>wd", "<C-W>c", { desc = "Delete window", remap = true })
-map("n", "<leader>ws", "<C-W>s", { desc = "Split window below", remap = true })
-map("n", "<leader>wv", "<C-W>v", { desc = "Split window right", remap = true })
+map("n", "<leader>s", ":split<CR>", { desc = "Split window below", remap = true })
+map("n", "<leader>v", ":vsplit<CR>", { desc = "Split window right", remap = true })
 
 -- Custom keymaps
 vim.keymap.set("i", "jj", "<Esc>")
