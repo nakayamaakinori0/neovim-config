@@ -19,8 +19,9 @@ map("n", "<leader>bl", ":Neotree buffers<CR>", { desc = "List Buffers" })
 map("n", "<leader>bD", ":% bd<CR>")
 
 -- file explorer
-map("n", "<leader>e", ":Neotree toggle<CR>", { desc = "Explorer Toggle" })
-map("n", "<leader>E", ":Neotree reveal<CR>", { desc = "Explorer Toggle current file" })
+-- map("n", "<leader>e", ":Neotree toggle<CR>", { desc = "Explorer Toggle" })
+-- map("n", "<leader>E", ":Neotree reveal<CR>", { desc = "Explorer Toggle current file" })
+map("n", "<leader>e", ":Oil<CR>", { desc = "Open parent directory" })
 
 -- Range indent
 map("v", "<", "<gv")

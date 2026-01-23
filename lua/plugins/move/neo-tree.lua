@@ -1,7 +1,6 @@
--- ファイルエクスプローラー: Neo-tree
--- サイドバーでのファイル管理とGit統合
+-- ファイルエクスプローラー
 return {
   "nvim-neo-tree/neo-tree.nvim",
-  enabled = true,
+  enabled = false,
   lazy = false, -- 起動時に即座に読み込み
 }
