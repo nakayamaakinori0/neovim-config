@@ -6,7 +6,7 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
 -- Clipboard
-vim.opt.clipboard:append("unnamed")      -- ヤンクした内容をシステムクリップボードにコピー
+vim.opt.clipboard:append("unnamed") -- ヤンクした内容をシステムクリップボードにコピー
 
 -- Disable netrw (use Neo-tree instead)
 vim.g.loaded_netrw = 1
@@ -16,7 +16,7 @@ vim.g.loaded_netrwPlugin = 1
 vim.opt.autoindent = true
 vim.opt.autowrite = true
 vim.opt.backup = false
-vim.opt.conceallevel = 0  -- Markdownの```などを隠さない
+vim.opt.conceallevel = 0 -- Markdownの```などを隠さない
 vim.opt.confirm = true
 vim.opt.cursorline = true
 vim.opt.expandtab = true
@@ -67,8 +67,8 @@ vim.opt.updatetime = 200
 vim.opt.virtualedit = "block"
 vim.opt.wildmode = "longest:full,full"
 vim.opt.winminwidth = 5
-vim.opt.wrap = true            -- 画面幅を超えたら折り返す
-vim.opt.linebreak = true   -- 単語の途中で折り返さない（見やすくなる）
+vim.opt.wrap = true -- 画面幅を超えたら折り返す
+vim.opt.linebreak = true -- 単語の途中で折り返さない（見やすくなる）
 vim.opt.writebackup = false
 
 -- Disable builtin plugins we don't need
@@ -86,3 +86,8 @@ vim.g.lazyvim_php_lsp = "intelephense"
 -- Fix markdown indentation settings
 vim.g.markdown_recommended_style = 0
 
+-- ripgrep settings
+vim.o.grepprg = "rg --vimgrep --smart-case"
+vim.o.grepformat = "%f:%l:%c:%m"
+--   :grep "検索パターン" src/
+--  :grep "検索パターン" **/*.lua
