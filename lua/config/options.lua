@@ -33,8 +33,6 @@ vim.opt.foldenable = true
 vim.opt.foldlevel = 99
 vim.opt.foldlevelstart = 99
 vim.opt.formatoptions = "jcroqlnt"
-vim.opt.grepformat = "%f:%l:%c:%m"
-vim.opt.grepprg = "rg --vimgrep"
 vim.opt.ignorecase = true
 vim.opt.inccommand = "nosplit"
 vim.opt.laststatus = 3
@@ -87,7 +85,9 @@ vim.g.lazyvim_php_lsp = "intelephense"
 vim.g.markdown_recommended_style = 0
 
 -- ripgrep settings
-vim.o.grepprg = "rg --vimgrep --smart-case"
-vim.o.grepformat = "%f:%l:%c:%m"
+vim.opt.grepprg = "rg --vimgrep --smart-case"
+vim.opt.grepformat = "%f:%l:%c:%m"
 --   :grep "検索パターン" src/
 --  :grep "検索パターン" **/*.lua
+--  :copen で結果を表示
+--  :cfdo %s/old/new/gc で一括置換
