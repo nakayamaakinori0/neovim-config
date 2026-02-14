@@ -64,3 +64,11 @@ end, { desc = "Copy absolute file path" })
 vim.keymap.set("n", "<leader>cc", "gcc", { desc = "Toggle comment on current line", remap = true })
 
 vim.keymap.set("n", "<leader>q", ":q<CR>")
+
+vim.keymap.set("n", "<leader>G", function()
+  local input = vim.fn.input("Glob (カンマ区切り): ")
+  local patterns = vim.split(input, ",", { trimempty = true })
+  require("telescope.builtin").live_grep({
+    glob_pattern = patterns,
+  })
+end, { desc = "Grep (フィルタ付き)" })
