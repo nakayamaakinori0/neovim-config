@@ -83,11 +83,3 @@ vim.g.lazyvim_php_lsp = "intelephense"
 
 -- Fix markdown indentation settings
 vim.g.markdown_recommended_style = 0
-
--- ripgrep settings
-vim.opt.grepprg = "rg --vimgrep --smart-case"
-vim.opt.grepformat = "%f:%l:%c:%m"
---   :grep "検索パターン" src/
---  :grep "検索パターン" **/*.lua
---  :copen で結果を表示
---  :cfdo %s/old/new/gc で一括置換
