@@ -3,7 +3,7 @@
 
 -- General
 vim.g.mapleader = " "
-vim.g.maplocalleader = "\\"
+vim.g.maplocalleader = ","
 
 -- Clipboard
 vim.opt.clipboard:append("unnamed") -- ヤンクした内容をシステムクリップボードにコピー
