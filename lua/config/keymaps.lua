@@ -1,30 +1,23 @@
-local function map(mode, after, before, desc)
-  desc = desc or {}
-  desc.silent = desc.silent ~= false
-  vim.keymap.set(mode, after, before, desc)
-end
-
 -- Basic keymaps
-map("n", "<leader>w", ":w<cr>", { desc = "Save file" })
-map("n", "<leader>q", ":q<cr>", { desc = "Quit window" })
+vim.keymap.set("n", "<leader>w", ":w<cr>", { desc = "Save file" })
+vim.keymap.set("n", "<leader>q", ":q<cr>", { desc = "Quit window" })
 
 -- Window navigation
-map("n", "<C-h>", "<C-w>h", { desc = "Go to left window" })
-map("n", "<C-j>", "<C-w>j", { desc = "Go to lower window" })
-map("n", "<C-k>", "<C-w>k", { desc = "Go to upper window" })
-map("n", "<C-l>", "<C-w>l", { desc = "Go to right window" })
+vim.keymap.set("n", "<C-h>", "<C-w>h", { desc = "Go to left window" })
+vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = "Go to lower window" })
+vim.keymap.set("n", "<C-k>", "<C-w>k", { desc = "Go to upper window" })
+vim.keymap.set("n", "<C-l>", "<C-w>l", { desc = "Go to right window" })
 
-map("n", "<leader>e", ":Oil<CR>", { desc = "Open parent directory" })
+vim.keymap.set("n", "<leader>e", ":Oil<CR>", { desc = "Open parent directory" })
 
 -- Range indent
-map("v", "<", "<gv")
-map("v", ">", ">gv")
+vim.keymap.set("v", "<", "<gv")
+vim.key.set("v", ">", ">gv")
 
--- Windows
-map("n", "<leader>s", ":split<CR>", { desc = "Split window below", remap = true })
-map("n", "<leader>v", ":vsplit<CR>", { desc = "Split window right", remap = true })
+-- Split
+vim.keymap.set("n", "<leader>s", ":split<CR>", { desc = "Split window below", remap = true })
+vim.keymap.set("n", "<leader>v", ":vsplit<CR>", { desc = "Split window right", remap = true })
 
--- Custom keymaps
 vim.keymap.set("i", "jj", "<Esc>")
 vim.keymap.set("n", "<leader>o", "o<Esc>")
 vim.keymap.set("n", "<leader>O", "O<Esc>")
