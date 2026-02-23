@@ -19,6 +19,7 @@ return {
     { "<leader>/", "<cmd>Telescope live_grep<cr>", desc = "Grep (root dir)" },
     { "<leader>:", "<cmd>Telescope command_history<cr>", desc = "Command History" },
     { "<leader><space>", "<cmd>Telescope find_files<cr>", desc = "Find Files (root dir)" },
+    { "<leader>b", "<cmd>Telescope buffers<cr>", desc = "Buffers" },
   },
   opts = {
     defaults = {

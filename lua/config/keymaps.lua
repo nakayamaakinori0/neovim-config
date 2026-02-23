@@ -1,6 +1,13 @@
 -- Basic keymaps
 vim.keymap.set("n", "<leader>w", ":w<cr>", { desc = "Save file" })
 vim.keymap.set("n", "<leader>q", ":q<cr>", { desc = "Quit window" })
+vim.keymap.set("i", "jj", "<Esc>")
+vim.keymap.set("n", "<leader>o", "o<Esc>")
+vim.keymap.set("n", "<leader>O", "O<Esc>")
+vim.keymap.set("n", "H", "0")
+vim.keymap.set("n", "L", "$")
+vim.keymap.set("v", "H", "0")
+vim.keymap.set("v", "L", "$")
 
 -- Window navigation
 vim.keymap.set("n", "<C-h>", "<C-w>h", { desc = "Go to left window" })
@@ -12,28 +19,16 @@ vim.keymap.set("n", "<leader>e", ":Oil<CR>", { desc = "Open parent directory" })
 
 -- Range indent
 vim.keymap.set("v", "<", "<gv")
-vim.key.set("v", ">", ">gv")
+vim.keymap.set("v", ">", ">gv")
 
 -- Split
 vim.keymap.set("n", "<leader>s", ":split<CR>", { desc = "Split window below", remap = true })
 vim.keymap.set("n", "<leader>v", ":vsplit<CR>", { desc = "Split window right", remap = true })
 
-vim.keymap.set("i", "jj", "<Esc>")
-vim.keymap.set("n", "<leader>o", "o<Esc>")
-vim.keymap.set("n", "<leader>O", "O<Esc>")
-vim.keymap.set("n", "H", "0")
-vim.keymap.set("n", "L", "$")
-vim.keymap.set("v", "H", "0")
-vim.keymap.set("v", "L", "$")
+vim.keymap.set("n", "<localleader>tt", ":term<CR>", { desc = "Open terminal" })
+vim.keymap.set("n", "<localleader>tk", ":Telekasten panel<CR>")
 
-vim.keymap.set("n", "<leader>tt", ":term<CR>", { desc = "Open terminal" })
-vim.keymap.set("n", "<leader>tk", ":Telekasten panel<CR>")
-
-vim.keymap.set("n", "<leader>td", function()
-  vim.cmd("normal! i" .. os.date("%Y-%m-%d"))
-end, { desc = "Insert current date (YYYY-MM-DD)" })
-
-vim.keymap.set("n", "<leader>gd", function()
+vim.keymap.set("n", "<localleader>gd", function()
   local diffview = require("diffview.lib")
   if diffview.get_current_view() then
     vim.cmd("DiffviewClose")
@@ -53,10 +48,6 @@ vim.keymap.set("n", "<leader>fY", function()
   vim.fn.setreg("+", path)
   print("Copied to clipboard: " .. path)
 end, { desc = "Copy absolute file path" })
-
-vim.keymap.set("n", "<leader>cc", "gcc", { desc = "Toggle comment on current line", remap = true })
-
-vim.keymap.set("n", "<leader>q", ":q<CR>")
 
 vim.keymap.set("n", "<leader>G", function()
   local input = vim.fn.input("Glob (カンマ区切り): ")
