@@ -11,6 +11,7 @@ return {
       template_new_note = vim.fn.expand("~/dev/telekasten/templates/default.md"),
       template_new_daily = vim.fn.expand("~/dev/telekasten/templates/daily.md"),
       template_new_weekly = vim.fn.expand("~/dev/telekasten/templates/weekly.md"),
+      tag_notation = ":tag:",
       auto_set_filetype = false,
       filetype = "markdown",
     },
