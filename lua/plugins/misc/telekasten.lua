@@ -14,6 +14,8 @@ return {
       tag_notation = ":tag:",
       auto_set_filetype = false,
       filetype = "markdown",
+      uuid_type = "%Y-%m-%d",
+      new_note_filename = "uuid-title",
     },
   },
 }
