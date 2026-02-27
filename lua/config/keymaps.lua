@@ -1,13 +1,13 @@
 -- Basic keymaps
-vim.keymap.set("n", "<leader>w", ":w<cr>", { desc = "Save file" })
-vim.keymap.set("n", "<leader>q", ":q<cr>", { desc = "Quit window" })
 vim.keymap.set("i", "jj", "<Esc>")
-vim.keymap.set("n", "<leader>o", "o<Esc>")
-vim.keymap.set("n", "<leader>O", "O<Esc>")
 vim.keymap.set("n", "H", "0")
 vim.keymap.set("n", "L", "$")
 vim.keymap.set("v", "H", "0")
 vim.keymap.set("v", "L", "$")
+vim.keymap.set("n", "<leader>w", ":w<cr>", { desc = "Save file" })
+vim.keymap.set("n", "<leader>q", ":q<cr>", { desc = "Quit window" })
+vim.keymap.set("n", "<leader>o", "o<Esc>")
+vim.keymap.set("n", "<leader>O", "O<Esc>")
 vim.keymap.set("n", "<leader>r", ":%s///gc<Left><Left><Left><Left>", { desc = "Replace in file" })
 
 -- Window navigation
