@@ -8,6 +8,7 @@ vim.keymap.set("n", "H", "0")
 vim.keymap.set("n", "L", "$")
 vim.keymap.set("v", "H", "0")
 vim.keymap.set("v", "L", "$")
+vim.keymap.set("n", "<leader>r", ":%s///gc<Left><Left><Left><Left>", { desc = "Replace in file" })
 
 -- Window navigation
 vim.keymap.set("n", "<C-h>", "<C-w>h", { desc = "Go to left window" })
