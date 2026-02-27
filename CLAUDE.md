@@ -18,7 +18,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - `lua/plugins/`: カスタムプラグイン設定
 
 ### プラグイン管理
-プラグインは`lua/plugins/`ディレクトリ内の個別ファイルで管理されています。各ファイルは特定のプラグインまたは機能群を担当しています。
+プラグインは
+`lua/plugins/`ディレクトリ内の個別ファイルで管理されています。各ファイルは特定のプラグインまたは機能群を担当しています。
 
 重要: MasonとMason-lspconfigはv1.xに固定されています（v2.0.0の破壊的変更を避けるため）。
 
