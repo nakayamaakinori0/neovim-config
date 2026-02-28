@@ -10,12 +10,12 @@ return {
       vim.cmd([[
         highlight BookmarkSign guifg=#00DABD guibg=NONE
       ]])
-      vim.keymap.set("n", "<leader>mm", "<cmd>BookmarkToggle<cr>", { desc = "BookmarkToggle" })
-      vim.keymap.set("n", "<leader>mi", "<cmd>BookmarkAnnotate<cr>", { desc = "BookmarkAnnotate" })
-      vim.keymap.set("n", "<leader>ml", "<cmd>BookmarkShowAll<cr>", { desc = "BookmarkShowAll" })
-      vim.keymap.set("n", "<leader>mn", "<cmd>BookmarkNext<cr>", { desc = "BookmarkNext" })
-      vim.keymap.set("n", "<leader>mp", "<cmd>BookmarkPrev<cr>", { desc = "BookmarkPrev" })
-      vim.keymap.set("n", "<leader>md", "<cmd>BookmarkClearAll<cr>", { desc = "BookmarkClearAll" })
+      vim.keymap.set("n", "<localleader>mm", "<cmd>BookmarkToggle<cr>", { desc = "BookmarkToggle" })
+      vim.keymap.set("n", "<localleader>mi", "<cmd>BookmarkAnnotate<cr>", { desc = "BookmarkAnnotate" })
+      vim.keymap.set("n", "<localleader>ml", "<cmd>BookmarkShowAll<cr>", { desc = "BookmarkShowAll" })
+      vim.keymap.set("n", "<localleader>mn", "<cmd>BookmarkNext<cr>", { desc = "BookmarkNext" })
+      vim.keymap.set("n", "<localleader>mp", "<cmd>BookmarkPrev<cr>", { desc = "BookmarkPrev" })
+      vim.keymap.set("n", "<localleader>md", "<cmd>BookmarkClearAll<cr>", { desc = "BookmarkClearAll" })
     end,
   },
 }
