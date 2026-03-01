@@ -17,13 +17,12 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
   spec = {
     -- import plugins from subdirectories only
-    { import = "plugins.core" },
-    { import = "plugins.ui" },
-    { import = "plugins.move" },
-    { import = "plugins.edit" },
     { import = "plugins.code" },
+    { import = "plugins.core" },
+    { import = "plugins.git" },
+    { import = "plugins.markdown" },
     { import = "plugins.tool" },
-    { import = "plugins.misc" },
+    { import = "plugins.ui" },
   },
   defaults = {
     lazy = false,
