@@ -9,3 +9,4 @@ data
 .vim-bookmarks
 .aider*
 .DS_Store
+lazy-lock.json
