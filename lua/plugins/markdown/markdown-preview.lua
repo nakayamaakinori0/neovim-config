@@ -2,12 +2,11 @@
 -- ブラウザでリアルタイムプレビュー、Mermaidダイアグラム対応
 return {
   "iamcco/markdown-preview.nvim",
+  lazy = false,
   enabled = true,
   cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
   ft = { "markdown" },
-  build = function()
-    vim.fn.system("cd " .. vim.fn.stdpath("data") .. "/lazy/markdown-preview.nvim/app && npm install")
-  end,
+  build = "cd app && npx --yes yarn install",
   keys = {
     { "<localleader>mp", "<cmd>MarkdownPreviewToggle<cr>", desc = "Markdown Preview Toggle" },
   },
