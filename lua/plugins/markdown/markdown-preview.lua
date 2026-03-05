@@ -27,7 +27,7 @@ return {
       katex = {}, -- 数式サポート
       uml = {}, -- UMLサポート
       maid = { theme = "default" }, -- Mermaidダイアグラム
-      disable_sync_scroll = 0, -- 同期スクロール有効
+      disable_sync_scroll = 1, -- 同期スクロール有効
       sync_scroll_type = "middle", -- スクロール位置
       hide_yaml_meta = 1, -- YAMLメタデータを隠す
       sequence_diagrams = {}, -- シーケンス図
