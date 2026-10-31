@@ -20,11 +20,11 @@ init.lua                 # 読み込み順だけを書く
 nvim-pack-lock.json      # vim.pack のロックファイル（git 管理）
 lua/config/
   options.lua            # オプション
-  keymaps.lua            # プラグインに依存しないキーマップ
+  keymaps.lua            # キーマップ（プラグイン・LSP の分も含めてすべて）
   autocmds.lua           # オートコマンド
   plugins.lua            # vim.pack.add() と各プラグイン設定の読み込み
   lsp.lua                # vim.lsp.config / vim.lsp.enable、補完
-lua/plugins/<name>.lua   # プラグインごとの setup() とキーマップ
+lua/plugins/<name>.lua   # プラグインごとの setup()
 lua/custom/codetour/     # 自作プラグイン
 docs/specs/              # 開発計画（NNNN-<title>.md）
 ```

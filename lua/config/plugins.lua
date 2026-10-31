@@ -41,7 +41,6 @@ vim.pack.add({
 require("plugins.solarized")
 require("plugins.telescope")
 require("plugins.gitsigns")
-require("plugins.fugitive")
 require("plugins.lazydev")
 require("plugins.conform")
 require("plugins.treesitter")

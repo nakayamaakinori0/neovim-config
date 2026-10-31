@@ -37,23 +37,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
   group = vim.api.nvim_create_augroup("lsp_attach", { clear = true }),
   callback = function(event)
     local client = assert(vim.lsp.get_client_by_id(event.data.client_id))
-    local builtin = require("telescope.builtin")
-
-    local map = function(keys, func, desc)
-      vim.keymap.set("n", keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
-    end
-
-    map("gd", builtin.lsp_definitions, "Goto Definition")
-    map("gr", builtin.lsp_references, "Goto References")
-    map("gI", builtin.lsp_implementations, "Goto Implementation")
-    map("gD", vim.lsp.buf.declaration, "Goto Declaration")
-    map("<leader>D", builtin.lsp_type_definitions, "Type Definition")
-    map("<leader>ds", builtin.lsp_document_symbols, "Document Symbols")
-    map("<leader>ws", builtin.lsp_dynamic_workspace_symbols, "Workspace Symbols")
-    map("<leader>rn", vim.lsp.buf.rename, "Rename")
-    map("<leader>ca", vim.lsp.buf.code_action, "Code Action")
-    map("<leader>cd", vim.diagnostic.open_float, "Show Diagnostics")
-
     -- 補完は本体機能。入力中に自動で候補を出し、<C-y> で確定する
     if client:supports_method("textDocument/completion") then
       vim.lsp.completion.enable(true, client.id, event.buf, { autotrigger = true })
