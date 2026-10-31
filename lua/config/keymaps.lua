@@ -16,7 +16,13 @@ vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = "Go to lower window" })
 vim.keymap.set("n", "<C-k>", "<C-w>k", { desc = "Go to upper window" })
 vim.keymap.set("n", "<C-l>", "<C-w>l", { desc = "Go to right window" })
 
-vim.keymap.set("n", "<leader>e", ":Oil<CR>", { desc = "Open parent directory" })
+-- ファイラーは本体の netrw
+vim.keymap.set("n", "<leader>e", "<cmd>Explore<CR>", { desc = "Open current directory" })
+
+-- Buffers
+vim.keymap.set("n", "<Tab>", "<cmd>bnext<CR>", { desc = "Next buffer" })
+vim.keymap.set("n", "<S-Tab>", "<cmd>bprevious<CR>", { desc = "Previous buffer" })
+vim.keymap.set("n", "<localleader>bx", "<cmd>bdelete<CR>", { desc = "Close current buffer" })
 
 -- Range indent
 vim.keymap.set("v", "<", "<gv")
@@ -27,16 +33,6 @@ vim.keymap.set("n", "<leader>s", ":split<CR>", { desc = "Split window below", re
 vim.keymap.set("n", "<leader>v", ":vsplit<CR>", { desc = "Split window right", remap = true })
 
 vim.keymap.set("n", "<localleader>tt", ":term<CR>", { desc = "Open terminal" })
-vim.keymap.set("n", "<localleader>tk", ":Telekasten panel<CR>")
-
-vim.keymap.set("n", "<localleader>gd", function()
-  local diffview = require("diffview.lib")
-  if diffview.get_current_view() then
-    vim.cmd("DiffviewClose")
-  else
-    vim.cmd("DiffviewOpen")
-  end
-end, { desc = "Toggle Diffview" })
 
 vim.keymap.set("n", "<leader>fy", function()
   local path = vim.fn.expand("%:.")
@@ -49,11 +45,3 @@ vim.keymap.set("n", "<leader>fY", function()
   vim.fn.setreg("+", path)
   print("Copied to clipboard: " .. path)
 end, { desc = "Copy absolute file path" })
-
-vim.keymap.set("n", "<leader>G", function()
-  local input = vim.fn.input("Glob (カンマ区切り): ")
-  local patterns = vim.split(input, ",", { trimempty = true })
-  require("telescope.builtin").live_grep({
-    glob_pattern = patterns,
-  })
-end, { desc = "Grep (フィルタ付き)" })

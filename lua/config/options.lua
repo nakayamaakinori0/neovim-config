@@ -1,16 +1,9 @@
--- Options are automatically loaded before lazy.nvim startup
--- Previously LazyVim default options, now explicitly set
-
 -- General
 vim.g.mapleader = " "
 vim.g.maplocalleader = ","
 
 -- Clipboard
 vim.opt.clipboard:append("unnamed") -- ヤンクした内容をシステムクリップボードにコピー
-
--- Disable netrw to use plugin
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
 
 -- Basic editing
 vim.opt.autoindent = true
@@ -47,7 +40,6 @@ vim.opt.sessionoptions = { "buffers", "curdir", "tabpages", "winsize", "help", "
 vim.opt.shiftround = true
 vim.opt.shiftwidth = 2
 vim.opt.shortmess:append({ W = true, I = true, c = true, C = true })
-vim.opt.showmode = false
 vim.opt.sidescrolloff = 8
 vim.opt.signcolumn = "yes"
 vim.opt.smartcase = true
@@ -64,6 +56,7 @@ vim.opt.undolevels = 10000
 vim.opt.updatetime = 200
 vim.opt.virtualedit = "block"
 vim.opt.wildmode = "longest:full,full"
+vim.opt.completeopt = { "menuone", "noselect", "popup", "fuzzy" }
 vim.opt.winminwidth = 5
 vim.opt.wrap = true -- 画面幅を超えたら折り返す
 vim.opt.linebreak = true -- 単語の途中で折り返さない（見やすくなる）
@@ -77,9 +70,6 @@ vim.g.loaded_tohtml = 1
 vim.g.loaded_tutor = 1
 vim.g.loaded_zip = 1
 vim.g.loaded_zipPlugin = 1
-
--- Custom options
-vim.g.lazyvim_php_lsp = "intelephense"
 
 -- Fix markdown indentation settings
 vim.g.markdown_recommended_style = 0
