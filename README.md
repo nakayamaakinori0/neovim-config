@@ -43,7 +43,7 @@ docs/specs/              # 開発計画（NNNN-<title>.md）
 | conform.nvim | 整形（保存時、Python 以外） |
 | nvim-treesitter（main） | パーサーのインストールのみ。ハイライトは本体 |
 
-補完は本体の `vim.lsp.completion`（入力中に自動表示、`<C-y>` で確定）。ファイラーは netrw（`<leader>e`）。
+補完は本体の `vim.lsp.completion`（入力中に自動表示、`<C-y>` で確定）。ファイラーは netrw のツリー表示（`<leader>e` で左に開閉）。
 
 ## LSP
 

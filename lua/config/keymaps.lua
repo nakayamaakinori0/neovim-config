@@ -16,8 +16,8 @@ vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = "Go to lower window" })
 vim.keymap.set("n", "<C-k>", "<C-w>k", { desc = "Go to upper window" })
 vim.keymap.set("n", "<C-l>", "<C-w>l", { desc = "Go to right window" })
 
--- ファイラーは本体の netrw
-vim.keymap.set("n", "<leader>e", "<cmd>Explore<CR>", { desc = "Open current directory" })
+-- ファイラーは本体の netrw。左にツリーを開閉する
+vim.keymap.set("n", "<leader>e", "<cmd>Lexplore<CR>", { desc = "Toggle file tree" })
 
 -- Buffers
 vim.keymap.set("n", "<Tab>", "<cmd>bnext<CR>", { desc = "Next buffer" })

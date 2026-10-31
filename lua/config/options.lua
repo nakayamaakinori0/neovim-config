@@ -62,6 +62,11 @@ vim.opt.wrap = true -- 画面幅を超えたら折り返す
 vim.opt.linebreak = true -- 単語の途中で折り返さない（見やすくなる）
 vim.opt.writebackup = false
 
+-- netrw をツリー表示にし、nvim-tree のように左に幅 30 で開く
+vim.g.netrw_liststyle = 3
+vim.g.netrw_banner = 0
+vim.g.netrw_winsize = -30
+
 -- Disable builtin plugins we don't need
 vim.g.loaded_gzip = 1
 vim.g.loaded_tar = 1
