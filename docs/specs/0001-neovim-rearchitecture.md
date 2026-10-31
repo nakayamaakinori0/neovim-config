@@ -30,7 +30,7 @@
   - `vim.pack.add()` / `update()` / `del()` の 3 関数のみ
   - ロックファイルを git 管理して再現性を確保する
   - `setup()` は自分で明示的に呼ぶ（暗黙の動きをなくす）
-- 新構成は **`NVIM_APPNAME=nvim-min`**（`~/.config/nvim-min/`）として別に作り、今の設定と並行運用してから切り替える
+- 並行運用はせず、`~/.config/nvim/` を直接作り替える（旧設定は git の履歴に残る）
 
 ### 目標のプラグイン構成（8 個前後）
 
@@ -42,7 +42,7 @@
 | 整形 | conform | prettier / biome などによる整形 |
 | Lua 開発の型補完 | lazydev | Lua を書くなら必須 |
 | 囲み編集 | vim-surround | 本体に代替がない |
-| カラースキーム | tokyonight か solarized のどちらか 1 つ | |
+| カラースキーム | solarized | 2026-11-01 決定 |
 | 自作 | codetour / notes | |
 
 ## 4. 現行プラグインの仕分け
@@ -82,23 +82,20 @@
 - [x] `brew upgrade neovim` を実行し、`nvim --version` で 0.12 系になったことを確認する → 既に v0.12.6
 - [x] 今の設定で起動し、`:checkhealth` でエラーがないか確認する → ERROR は lazy.nvim の luarocks 未導入のみ（luarocks を使うプラグインはないので無視）。`vim.deprecated` は OK
 
-### Phase 2：最小構成を新規に作る
+### Phase 2：最小構成に作り替える
 
-- [ ] `~/.config/nvim-min/` を作り、`NVIM_APPNAME=nvim-min nvim` で起動できるようにする
-- [ ] `vim.pack` で目標のプラグインを追加し、ロックファイルを git 管理する
+`~/.config/nvim/` を直接作り替える（1 本の PR）。旧設定は git の履歴から戻せるのでタグは打たない。
+
+- [ ] lazy.nvim と旧プラグイン設定を削除する
+- [ ] `vim.pack` で目標のプラグインを追加し、ロックファイル（`nvim-pack-lock.json`）を git 管理する
 - [ ] LSP（TypeScript、必要なら Python）を `vim.lsp.config` / `vim.lsp.enable` で設定する
 - [ ] LSP 補完を本体機能で有効にする
 - [ ] conform で整形を設定する
 
-### Phase 3：並行運用して検証する
+### Phase 3：業務で使って検証する
 
 - [ ] 最小構成で 1 週間ほど業務をこなす
 - [ ] 本当に足りなかったものだけをメモし、戻すかどうかを判断する
-
-### Phase 4：切り替える
-
-- [ ] 最小構成をメインの `~/.config/nvim/` に移す
-- [ ] 旧設定はブランチやタグで残しておく
 
 ## 6. 注意点
 
@@ -109,7 +106,7 @@
 
 ## 7. 未決事項
 
-- [ ] カラースキームは tokyonight と solarized のどちらにするか
+- [x] カラースキームは tokyonight と solarized のどちらにするか → solarized
 - [ ] vim-fugitive を残すか（git 操作は Zellij の別ペインの `git` / lazygit で足りるか）
 - [ ] mason を外すか（言語サーバーを npm / brew で直接入れる手間と比べて判断する）
 - [ ] treesitter を入れるか（TS/TSX のパーサーは本体に同梱されていない）
