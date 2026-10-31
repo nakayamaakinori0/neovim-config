@@ -73,13 +73,14 @@
 
 ## 5. 移行手順
 
-### Phase 1：Neovim 本体を 0.12 に上げる
+### Phase 1：Neovim 本体を 0.12 に上げる（完了）
+
+コンテナ内では Neovim を使っていないため、Dockerfile のバージョン更新は対象外とした。
 
 - [x] 今の設定の `.gitignore` を確認し、`lazy-lock.json` をコミットする（プラグインを戻せるようにするため） → 0190a0b6
 - [x] `which nvim` で入手元を確認する → `/opt/homebrew/bin/nvim`（Homebrew）
 - [x] `brew upgrade neovim` を実行し、`nvim --version` で 0.12 系になったことを確認する → 既に v0.12.6
 - [x] 今の設定で起動し、`:checkhealth` でエラーがないか確認する → ERROR は lazy.nvim の luarocks 未導入のみ（luarocks を使うプラグインはないので無視）。`vim.deprecated` は OK
-- [ ] コンテナ内の Neovim も Dockerfile 側でバージョンを上げる（ホストとずれないように）
 
 ### Phase 2：最小構成を新規に作る
 
@@ -110,6 +111,6 @@
 
 - [ ] カラースキームは tokyonight と solarized のどちらにするか
 - [ ] vim-fugitive を残すか（git 操作は Zellij の別ペインの `git` / lazygit で足りるか）
-- [ ] mason を外すか（コンテナ内で Neovim を使う運用では mason 経由のほうが楽な場面がある）
+- [ ] mason を外すか（言語サーバーを npm / brew で直接入れる手間と比べて判断する）
 - [ ] treesitter を入れるか（TS/TSX のパーサーは本体に同梱されていない）
 - [ ] harpoon2 / bookmarks.nvim は本体のマークで足りるか
