@@ -20,7 +20,7 @@
 | プラグイン管理 | lazy.nvim（`plugins/{code,core,git,markdown,tool,ui}` から import） |
 | プラグイン数 | 25 個 + 自作 `custom/codetour` |
 | 課題 | lazy.nvim の約束事（`opts` / `config` / 遅延読み込み / import）が多く使いにくい |
-| 課題 | `lazy-lock.json` が `.gitignore` に入っていて git 管理されていない（確認済み） |
+| 課題 | `lazy-lock.json` が `.gitignore` に入っていて git 管理されていなかった（0190a0b6 で解消） |
 | 課題 | `checker` が通知オフのまま裏で更新チェックしている |
 
 ## 3. 目標構成
@@ -75,7 +75,7 @@
 
 ### Phase 1：Neovim 本体を 0.12 に上げる
 
-- [ ] 今の設定の `.gitignore` を確認し、`lazy-lock.json` をコミットする（プラグインを戻せるようにするため）
+- [x] 今の設定の `.gitignore` を確認し、`lazy-lock.json` をコミットする（プラグインを戻せるようにするため） → 0190a0b6
 - [x] `which nvim` で入手元を確認する → `/opt/homebrew/bin/nvim`（Homebrew）
 - [x] `brew upgrade neovim` を実行し、`nvim --version` で 0.12 系になったことを確認する → 既に v0.12.6
 - [x] 今の設定で起動し、`:checkhealth` でエラーがないか確認する → ERROR は lazy.nvim の luarocks 未導入のみ（luarocks を使うプラグインはないので無視）。`vim.deprecated` は OK
