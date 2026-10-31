@@ -99,7 +99,8 @@ nodenv で npm のグローバルに入れたツールは Node のバージョ�
 
 - TypeScript は brew だと 7（ネイティブ版）になり、`ts_ls` が使う `tsserver` がない。そのため `ts_ls` はプロジェクトの `node_modules/typescript` で動かす。業務のリポジトリには必ずあり、CI と同じバージョンで型チェックできる
 - TypeScript 7 の `tsc --lsp` は 7.0 に `.vue` 用プラグイン（`@vue/typescript-plugin`）を読む仕組みがない。`.ts` だけ `tsc` にすると分担が複雑になるので見送った
-- 将来: TS 7.1 でプラグイン API が入り、Vue Language Tools v4 が対応したら `ts_ls` を `tsc` に置き換える（別 spec で扱う）
+- 既知の制約: TypeScript 7 のプロジェクト（今 `npm i -D typescript` すると入る）と `node_modules` がない場所では、`ts_ls` が tsserver を見つけられず LSP が動かない。プロジェクトの TS のバージョンで `ts_ls` と `tsc` を切り替える案は、設定が複雑になるので採らなかった
+- 将来: TS 7 のプロジェクトが主になったら、`vim.lsp.enable` の `ts_ls` を `tsc` に置き換える。TS 7.1 でプラグイン API が入り Vue Language Tools v4 が対応していれば `.vue` もまとめて移す（別 spec で扱う）
 
 ### Phase 3：業務で使って検証する
 

@@ -54,6 +54,8 @@ docs/specs/              # 開発計画（NNNN-<title>.md）
 | ESLint | `eslint`（プロジェクトの eslint を使う） |
 | Lua | `lua_ls` |
 
+TypeScript 7 のプロジェクトと `node_modules` がない場所では `ts_ls` が動かない（tsserver がないため）。理由と移行方針は spec 0001 を参照。
+
 ## よく使う操作
 
 | 操作 | 方法 |
