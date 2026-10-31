@@ -49,8 +49,8 @@ docs/specs/              # 開発計画（NNNN-<title>.md）
 
 | 言語 | サーバー |
 |---|---|
-| TypeScript / JavaScript | `tsc`（TypeScript 7 の `--lsp`） |
-| Vue | `vue_ls` + `ts_ls`（プロジェクトの `node_modules/typescript` を使う） |
+| TypeScript / JavaScript | `ts_ls`（プロジェクトの `node_modules/typescript` を使う） |
+| Vue | `vue_ls`（HTML/CSS）+ `ts_ls`（`<script>`） |
 | ESLint | `eslint`（プロジェクトの eslint を使う） |
 | Lua | `lua_ls` |
 

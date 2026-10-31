@@ -7,10 +7,9 @@ vim.diagnostic.config({
   severity_sort = true,
 })
 
--- .ts / .js は brew の TypeScript 7（tsc --lsp）が扱う。npm のグローバルインストールを不要にするため
--- .vue だけは TypeScript 7 が tsserver プラグインに対応していないので、ts_ls + @vue/typescript-plugin を使う
--- ts_ls はプロジェクトの node_modules の typescript で動く（vue_ls は HTML/CSS 部分だけ担当）
--- プラグインは vue_ls と同じバージョンでないと動かないため、brew の vue-language-server に同梱されたものを使う
+-- TypeScript は .ts も .vue も ts_ls が扱い、プロジェクトの node_modules の typescript で型チェックする
+-- brew の TypeScript 7（tsc --lsp）を使わないのは、7.0 に .vue 用プラグインを読む仕組みがないため（7.1 で移行を検討）
+-- @vue/typescript-plugin は vue_ls と同じバージョンでないと動かないので、brew の vue-language-server 同梱のものを使う
 local vue_plugin =
   "/opt/homebrew/opt/vue-language-server/libexec/lib/node_modules/@vue/language-server/node_modules/@vue/typescript-plugin"
 
@@ -20,7 +19,7 @@ vim.lsp.config("ts_ls", {
       { name = "@vue/typescript-plugin", location = vue_plugin, languages = { "vue" } },
     },
   },
-  filetypes = { "vue" },
+  filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact", "vue" },
 })
 
 vim.lsp.config("lua_ls", {
@@ -32,7 +31,7 @@ vim.lsp.config("lua_ls", {
   },
 })
 
-vim.lsp.enable({ "tsc", "ts_ls", "vue_ls", "eslint", "lua_ls" })
+vim.lsp.enable({ "ts_ls", "vue_ls", "eslint", "lua_ls" })
 
 vim.api.nvim_create_autocmd("LspAttach", {
   group = vim.api.nvim_create_augroup("lsp_attach", { clear = true }),

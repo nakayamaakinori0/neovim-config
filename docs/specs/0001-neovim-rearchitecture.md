@@ -88,7 +88,7 @@
 
 - [x] lazy.nvim と旧プラグイン設定を削除する
 - [x] `vim.pack` で目標のプラグインを追加し、ロックファイル（`nvim-pack-lock.json`）を git 管理する
-- [x] LSP を `vim.lsp.config` / `vim.lsp.enable` で設定する（TS/JS: `tsc`、Vue: `vue_ls` + `ts_ls`、`eslint`、`lua_ls`）
+- [x] LSP を `vim.lsp.config` / `vim.lsp.enable` で設定する（TS/JS/Vue: `ts_ls`、Vue の HTML/CSS: `vue_ls`、`eslint`、`lua_ls`）
 - [x] LSP 補完を本体機能で有効にする（`vim.lsp.completion.enable` の `autotrigger`）
 - [x] conform で整形を設定する
 - [ ] PHP の LSP を決める（intelephense は brew にない）
@@ -97,8 +97,9 @@
 
 nodenv で npm のグローバルに入れたツールは Node のバージョンごとに分かれる。さらに、どれか 1 つのバージョンに入っていると shim が作られ、そのツールが入っていないバージョンでは `command not found` で止まる。この shim が PATH 上で brew 版より前にあるため、brew 版にたどり着けなかった。そこで LSP サーバー・フォーマッター・`typescript`・`eslint`・`prettier` は nodenv から消し、brew に寄せた。
 
-- TypeScript は brew だと 7（ネイティブ版）になる。`tsserver` がないので `ts_ls` は使えず、`tsc --lsp` を使う
-- TypeScript 7 は tsserver プラグインに対応していないので、`.vue` だけは `ts_ls` + `@vue/typescript-plugin` を使う。`ts_ls` はプロジェクトの `node_modules/typescript` で動く
+- TypeScript は brew だと 7（ネイティブ版）になり、`ts_ls` が使う `tsserver` がない。そのため `ts_ls` はプロジェクトの `node_modules/typescript` で動かす。業務のリポジトリには必ずあり、CI と同じバージョンで型チェックできる
+- TypeScript 7 の `tsc --lsp` は 7.0 に `.vue` 用プラグイン（`@vue/typescript-plugin`）を読む仕組みがない。`.ts` だけ `tsc` にすると分担が複雑になるので見送った
+- 将来: TS 7.1 でプラグイン API が入り、Vue Language Tools v4 が対応したら `ts_ls` を `tsc` に置き換える（別 spec で扱う）
 
 ### Phase 3：業務で使って検証する
 
