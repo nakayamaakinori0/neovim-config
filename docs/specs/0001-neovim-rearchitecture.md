@@ -86,11 +86,21 @@
 
 `~/.config/nvim/` を直接作り替える（1 本の PR）。旧設定は git の履歴から戻せるのでタグは打たない。
 
-- [ ] lazy.nvim と旧プラグイン設定を削除する
-- [ ] `vim.pack` で目標のプラグインを追加し、ロックファイル（`nvim-pack-lock.json`）を git 管理する
-- [ ] LSP（TypeScript、必要なら Python）を `vim.lsp.config` / `vim.lsp.enable` で設定する
-- [ ] LSP 補完を本体機能で有効にする
-- [ ] conform で整形を設定する
+- [x] lazy.nvim と旧プラグイン設定を削除する
+- [x] `vim.pack` で目標のプラグインを追加し、ロックファイル（`nvim-pack-lock.json`）を git 管理する
+- [x] LSP を `vim.lsp.config` / `vim.lsp.enable` で設定する（TS/JS/Vue: `ts_ls`、Vue の HTML/CSS: `vue_ls`、`eslint`、`lua_ls`）
+- [x] LSP 補完を本体機能で有効にする（`vim.lsp.completion.enable` の `autotrigger`）
+- [x] conform で整形を設定する
+- [x] PHP の LSP を決める → 今は入れない。PHP プロジェクトを始めるときに phpactor を入れる（composer でプロジェクトに入れるか PHAR を置くかはそのとき決める）。intelephense は npm のグローバルが必要、psalm は `psalm.xml` がないと起動せず補完も弱いため見送り
+
+#### CLI ツールは brew に統一する
+
+nodenv で npm のグローバルに入れたツールは Node のバージョンごとに分かれる。さらに、どれか 1 つのバージョンに入っていると shim が作られ、そのツールが入っていないバージョンでは `command not found` で止まる。この shim が PATH 上で brew 版より前にあるため、brew 版にたどり着けなかった。そこで LSP サーバー・フォーマッター・`typescript`・`eslint`・`prettier` は nodenv から消し、brew に寄せた。
+
+- TypeScript は brew だと 7（ネイティブ版）になり、`ts_ls` が使う `tsserver` がない。そのため `ts_ls` はプロジェクトの `node_modules/typescript` で動かす。業務のリポジトリには必ずあり、CI と同じバージョンで型チェックできる
+- TypeScript 7 の `tsc --lsp` は 7.0 に `.vue` 用プラグイン（`@vue/typescript-plugin`）を読む仕組みがない。`.ts` だけ `tsc` にすると分担が複雑になるので見送った
+- 既知の制約: TypeScript 7 のプロジェクト（今 `npm i -D typescript` すると入る）と `node_modules` がない場所では、`ts_ls` が tsserver を見つけられず LSP が動かない。プロジェクトの TS のバージョンで `ts_ls` と `tsc` を切り替える案は、設定が複雑になるので採らなかった
+- 将来: TS 7 のプロジェクトが主になったら、`vim.lsp.enable` の `ts_ls` を `tsc` に置き換える。TS 7.1 でプラグイン API が入り Vue Language Tools v4 が対応していれば `.vue` もまとめて移す（別 spec で扱う）
 
 ### Phase 3：業務で使って検証する
 
@@ -102,12 +112,12 @@
 - **0.12 には破壊的変更がある**：診断（diagnostics）、Treesitter の挙動、API の名前変更など。本体のバイナリは旧設定と共有なので、上げた直後に旧設定が壊れる可能性がある
 - **`vim.pack` は実験的機能**：公式ドキュメントに警告がある。個人の設定なら許容範囲だが、仕様変更の可能性を意識しておく
 - **`vim.pack` にないもの**：依存関係の解決（読み込み順は `vim.pack.add()` に渡す配列の順で決まる）と遅延読み込み。プラグインが数個なら不要
-- **nodenv 環境**：グローバルに入れた言語サーバー（`typescript-language-server` など）は Node のバージョンを切り替えると再インストールが必要になる
+- **nodenv 環境**：グローバルに入れた言語サーバーは Node のバージョンを切り替えると使えなくなる → brew に統一して解消（Phase 2 参照）
 
 ## 7. 未決事項
 
 - [x] カラースキームは tokyonight と solarized のどちらにするか → solarized
-- [ ] vim-fugitive を残すか（git 操作は Zellij の別ペインの `git` / lazygit で足りるか）
-- [ ] mason を外すか（言語サーバーを npm / brew で直接入れる手間と比べて判断する）
-- [ ] treesitter を入れるか（TS/TSX のパーサーは本体に同梱されていない）
+- [x] vim-fugitive を残すか → 残す
+- [x] mason を外すか → 外して brew で入れる
+- [x] treesitter を入れるか → 入れる。nvim-treesitter（main）はパーサーの入手だけに使い、ハイライトは本体の `vim.treesitter.start`。textobjects は外し、選択は本体の `v_an` / `v_in` を使う
 - [ ] harpoon2 / bookmarks.nvim は本体のマークで足りるか
