@@ -35,6 +35,10 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - `vim-bookmarks.lua`: ブックマーク機能
 - `mason-lspconfig.lua`: LSPサーバー管理（自動インストール無効）
 
+## 開発計画（spec）
+- 新しい開発は `docs/specs/` に spec を Markdown で追加してから進める
+- ファイル名は `NNNN-<kebab-case-title>.md`（4 桁連番）。詳細は `docs/specs/README.md`
+
 ## 開発コマンド
 
 ### Neovim設定の適用
