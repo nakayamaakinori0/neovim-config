@@ -86,11 +86,19 @@
 
 `~/.config/nvim/` を直接作り替える（1 本の PR）。旧設定は git の履歴から戻せるのでタグは打たない。
 
-- [ ] lazy.nvim と旧プラグイン設定を削除する
-- [ ] `vim.pack` で目標のプラグインを追加し、ロックファイル（`nvim-pack-lock.json`）を git 管理する
-- [ ] LSP（TypeScript、必要なら Python）を `vim.lsp.config` / `vim.lsp.enable` で設定する
-- [ ] LSP 補完を本体機能で有効にする
-- [ ] conform で整形を設定する
+- [x] lazy.nvim と旧プラグイン設定を削除する
+- [x] `vim.pack` で目標のプラグインを追加し、ロックファイル（`nvim-pack-lock.json`）を git 管理する
+- [x] LSP を `vim.lsp.config` / `vim.lsp.enable` で設定する（TS/JS: `tsc`、Vue: `vue_ls` + `ts_ls`、`eslint`、`lua_ls`）
+- [x] LSP 補完を本体機能で有効にする（`vim.lsp.completion.enable` の `autotrigger`）
+- [x] conform で整形を設定する
+- [ ] PHP の LSP を決める（intelephense は brew にない）
+
+#### CLI ツールは brew に統一する
+
+nodenv で npm のグローバルに入れたツールは Node のバージョンごとに分かれる。さらに、どれか 1 つのバージョンに入っていると shim が作られ、そのツールが入っていないバージョンでは `command not found` で止まる。この shim が PATH 上で brew 版より前にあるため、brew 版にたどり着けなかった。そこで LSP サーバー・フォーマッター・`typescript`・`eslint`・`prettier` は nodenv から消し、brew に寄せた。
+
+- TypeScript は brew だと 7（ネイティブ版）になる。`tsserver` がないので `ts_ls` は使えず、`tsc --lsp` を使う
+- TypeScript 7 は tsserver プラグインに対応していないので、`.vue` だけは `ts_ls` + `@vue/typescript-plugin` を使う。`ts_ls` はプロジェクトの `node_modules/typescript` で動く
 
 ### Phase 3：業務で使って検証する
 
@@ -102,12 +110,12 @@
 - **0.12 には破壊的変更がある**：診断（diagnostics）、Treesitter の挙動、API の名前変更など。本体のバイナリは旧設定と共有なので、上げた直後に旧設定が壊れる可能性がある
 - **`vim.pack` は実験的機能**：公式ドキュメントに警告がある。個人の設定なら許容範囲だが、仕様変更の可能性を意識しておく
 - **`vim.pack` にないもの**：依存関係の解決（読み込み順は `vim.pack.add()` に渡す配列の順で決まる）と遅延読み込み。プラグインが数個なら不要
-- **nodenv 環境**：グローバルに入れた言語サーバー（`typescript-language-server` など）は Node のバージョンを切り替えると再インストールが必要になる
+- **nodenv 環境**：グローバルに入れた言語サーバーは Node のバージョンを切り替えると使えなくなる → brew に統一して解消（Phase 2 参照）
 
 ## 7. 未決事項
 
 - [x] カラースキームは tokyonight と solarized のどちらにするか → solarized
-- [ ] vim-fugitive を残すか（git 操作は Zellij の別ペインの `git` / lazygit で足りるか）
-- [ ] mason を外すか（言語サーバーを npm / brew で直接入れる手間と比べて判断する）
-- [ ] treesitter を入れるか（TS/TSX のパーサーは本体に同梱されていない）
+- [x] vim-fugitive を残すか → 残す
+- [x] mason を外すか → 外して brew で入れる
+- [x] treesitter を入れるか → 入れる。nvim-treesitter（main）はパーサーの入手だけに使い、ハイライトは本体の `vim.treesitter.start`。textobjects は外し、選択は本体の `v_an` / `v_in` を使う
 - [ ] harpoon2 / bookmarks.nvim は本体のマークで足りるか
