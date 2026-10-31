@@ -91,7 +91,7 @@
 - [x] LSP を `vim.lsp.config` / `vim.lsp.enable` で設定する（TS/JS/Vue: `ts_ls`、Vue の HTML/CSS: `vue_ls`、`eslint`、`lua_ls`）
 - [x] LSP 補完を本体機能で有効にする（`vim.lsp.completion.enable` の `autotrigger`）
 - [x] conform で整形を設定する
-- [ ] PHP の LSP を決める（intelephense は brew にない）
+- [x] PHP の LSP を決める → 今は入れない。PHP プロジェクトを始めるときに phpactor を入れる（composer でプロジェクトに入れるか PHAR を置くかはそのとき決める）。intelephense は npm のグローバルが必要、psalm は `psalm.xml` がないと起動せず補完も弱いため見送り
 
 #### CLI ツールは brew に統一する
 
