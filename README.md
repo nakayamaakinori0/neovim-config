@@ -20,13 +20,14 @@ init.lua                 # 読み込み順だけを書く
 nvim-pack-lock.json      # vim.pack のロックファイル（git 管理）
 lua/config/
   options.lua            # オプション
-  keymaps.lua            # プラグインに依存しないキーマップ
+  keymaps.lua            # キーマップ（プラグイン・LSP の分も含めてすべて）
   autocmds.lua           # オートコマンド
   plugins.lua            # vim.pack.add() と各プラグイン設定の読み込み
   lsp.lua                # vim.lsp.config / vim.lsp.enable、補完
-lua/plugins/<name>.lua   # プラグインごとの setup() とキーマップ
+lua/plugins/<name>.lua   # プラグインごとの setup()
 lua/custom/codetour/     # 自作プラグイン
 docs/specs/              # 開発計画（NNNN-<title>.md）
+docs/usage/              # 使い方メモ（<topic>.md）
 ```
 
 ## プラグイン
@@ -43,7 +44,7 @@ docs/specs/              # 開発計画（NNNN-<title>.md）
 | conform.nvim | 整形（保存時、Python 以外） |
 | nvim-treesitter（main） | パーサーのインストールのみ。ハイライトは本体 |
 
-補完は本体の `vim.lsp.completion`（入力中に自動表示、`<C-y>` で確定）。ファイラーは netrw（`<leader>e`）。
+補完は本体の `vim.lsp.completion`（入力中に自動表示、`<C-y>` で確定）。ファイラーは netrw のツリー表示（`<leader>e` で左に開閉）。
 
 ## LSP
 
@@ -71,7 +72,7 @@ TypeScript 7 のプロジェクトと `node_modules` がない場所では `ts_l
 | キー | 動作 |
 |---|---|
 | `<leader><space>` / `<leader>/` / `<leader>G` | ファイル検索 / grep / glob 付き grep |
-| `<Tab>` / `<S-Tab>` / `,bx` | 次 / 前のバッファ / バッファを閉じる |
+| `]b` / `[b` / `,bx` | 次 / 前のバッファ（標準） / バッファを閉じる |
 | `,bt` | バッファ一覧（telescope） |
 | `gd` / `gr` / `K` | 定義 / 参照 / ホバー |
 | `]h` / `[h` / `<leader>ghp` | 次 / 前のハンク / ハンクのプレビュー |

@@ -17,7 +17,3 @@ require("conform").setup({
     vue = { "eslint_d" },
   },
 })
-
-vim.keymap.set("n", "<leader>cf", function()
-  require("conform").format({ async = true })
-end, { desc = "Format file" })

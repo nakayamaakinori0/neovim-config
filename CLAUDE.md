@@ -11,11 +11,16 @@ Neovim 0.12 の設定。プラグイン管理は本体の `vim.pack`。方針は
 - 新しい開発は `docs/specs/` に spec を Markdown で追加してから進める
 - ファイル名は `NNNN-<kebab-case-title>.md`（4 桁連番）。詳細は `docs/specs/README.md`
 
+## 使い方メモ
+- Neovim の使い方メモは `docs/usage/<kebab-case-topic>.md` に話題ごとに書く（番号なし）。追加したら `docs/usage/README.md` の一覧にも足す
+
 ## 書き方の決まり
 - プラグインを足すときは `lua/config/plugins.lua` の `vim.pack.add()` に追加し、`lua/plugins/<name>.lua` で `setup()` を明示的に呼ぶ
 - `vim.pack` は依存を解決しないので、依存されるプラグインを配列の前に置く
 - build が要るプラグインは `plugins.lua` の `PackChanged` autocmd に書く
 - LSP は `lua/config/lsp.lua` に `vim.lsp.config` / `vim.lsp.enable` で書く
+- キーマップはできるだけ標準に寄せる。独自のキーは `jj` と `H` / `L` だけにしていて、新しく上書きするときは理由をコメントに書く
+- キーマップはすべて `lua/config/keymaps.lua` に書く。プラグインの関数は押したときに `require` する（keymaps.lua はプラグインより先に読まれるため）。LSP のキーマップは同ファイルの `LspAttach` でバッファごとに張る
 - CLI ツール（LSP サーバー・フォーマッター）は brew で入れる。npm のグローバルインストールと mason は使わない
 
 ## 開発コマンド
