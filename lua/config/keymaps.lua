@@ -83,6 +83,10 @@ vim.keymap.set("n", "<leader>cf", function()
   require("conform").format({ async = true })
 end, { desc = "Format file" })
 
+-- Markdown
+vim.keymap.set("n", "<localleader>mv", "<cmd>Markview Toggle<cr>", { desc = "Markview Toggle" })
+vim.keymap.set("n", "<localleader>mp", "<cmd>MarkdownPreviewToggle<cr>", { desc = "Markdown Preview Toggle" })
+
 -- Codetour
 vim.keymap.set("n", "<localleader>tn", "<cmd>TourNext<cr>", { desc = "Next tour step" })
 vim.keymap.set("n", "<localleader>tp", "<cmd>TourPrev<cr>", { desc = "Previous tour step" })

@@ -43,6 +43,9 @@ docs/usage/              # 使い方メモ（<topic>.md）
 | lazydev.nvim | Neovim の Lua API の補完 |
 | conform.nvim | 整形（保存時、Python 以外） |
 | nvim-treesitter（main） | パーサーのインストールのみ。ハイライトは本体 |
+| markview.nvim | Markdown を Neovim の中で整形して表示（`,mv` で切り替え） |
+| markdown-preview.nvim | Markdown をブラウザでプレビュー（`,mp`） |
+| which-key.nvim | 押しかけのキーに続くキーマップを一覧表示 |
 
 補完は本体の `vim.lsp.completion`（入力中に自動表示、`<C-y>` で確定）。ファイラーは netrw のツリー表示（`<leader>e` で左に開閉）。
 
@@ -77,4 +80,5 @@ TypeScript 7 のプロジェクトと `node_modules` がない場所では `ts_l
 | `gd` / `gr` / `K` | 定義 / 参照 / ホバー |
 | `]h` / `[h` / `<leader>ghp` | 次 / 前のハンク / ハンクのプレビュー |
 | `<leader>gs` | `:Git` |
+| `,mv` / `,mp` | Markdown の整形表示 / ブラウザでプレビュー |
 | `v` の中で `an` / `in` | treesitter のノード単位で選択を広げる / 狭める |

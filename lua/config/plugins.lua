@@ -14,6 +14,12 @@ vim.api.nvim_create_autocmd("PackChanged", {
     end
     if name == "telescope-fzf-native.nvim" then
       vim.system({ "make" }, { cwd = ev.data.path }):wait()
+    elseif name == "markdown-preview.nvim" then
+      -- Node 同梱のビルド済みバイナリを落とす。npm で入れると nodenv の Node のバージョンに依存するため
+      if not ev.data.active then
+        vim.cmd.packadd("markdown-preview.nvim")
+      end
+      vim.fn["mkdp#util#install"]()
     elseif name == "nvim-treesitter" then
       if not ev.data.active then
         vim.cmd.packadd("nvim-treesitter")
@@ -36,6 +42,9 @@ vim.pack.add({
   gh("folke/lazydev.nvim"),
   gh("stevearc/conform.nvim"),
   { src = gh("nvim-treesitter/nvim-treesitter"), version = "main" },
+  gh("OXY2DEV/markview.nvim"),
+  gh("iamcco/markdown-preview.nvim"),
+  gh("folke/which-key.nvim"),
 })
 
 require("plugins.solarized")
@@ -44,4 +53,7 @@ require("plugins.gitsigns")
 require("plugins.lazydev")
 require("plugins.conform")
 require("plugins.treesitter")
+require("plugins.markview")
+require("plugins.markdown-preview")
+require("plugins.which-key")
 require("plugins.codetour")

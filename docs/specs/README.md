@@ -25,3 +25,4 @@
 | 番号 | タイトル | ステータス |
 |---|---|---|
 | [0001](0001-neovim-rearchitecture.md) | Neovim リアーキテクチャ計画 | 完了 |
+| [0002](0002-restore-plugins.md) | 外したプラグインを戻す（Markdown 表示・プレビュー、which-key） | 完了 |
