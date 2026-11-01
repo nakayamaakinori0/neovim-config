@@ -26,3 +26,4 @@
 |---|---|---|
 | [0001](0001-neovim-rearchitecture.md) | Neovim リアーキテクチャ計画 | 完了 |
 | [0002](0002-restore-plugins.md) | 外したプラグインを戻す（Markdown 表示・プレビュー、which-key） | 完了 |
+| [0003](0003-remove-unused-settings.md) | 使われていない設定を消す | 完了 |
