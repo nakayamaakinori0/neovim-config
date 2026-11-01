@@ -15,10 +15,6 @@ vim.keymap.set("n", "<leader>e", "<cmd>Lexplore<CR>", { desc = "Toggle file tree
 -- Buffers
 vim.keymap.set("n", "<localleader>bx", "<cmd>bdelete<CR>", { desc = "Close current buffer" })
 
--- Range indent
-vim.keymap.set("v", "<", "<gv")
-vim.keymap.set("v", ">", ">gv")
-
 vim.keymap.set("n", "<localleader>tt", ":term<CR>", { desc = "Open terminal" })
 
 vim.keymap.set("n", "<leader>fy", function()
