@@ -24,4 +24,4 @@
 
 | 番号 | タイトル | ステータス |
 |---|---|---|
-| [0001](0001-neovim-rearchitecture.md) | Neovim リアーキテクチャ計画 | 進行中 |
+| [0001](0001-neovim-rearchitecture.md) | Neovim リアーキテクチャ計画 | 完了 |
