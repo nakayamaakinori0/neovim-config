@@ -1,5 +1,4 @@
 -- Basic keymaps
-vim.keymap.set("i", "jj", "<Esc>")
 vim.keymap.set("n", "H", "0")
 vim.keymap.set("n", "L", "$")
 vim.keymap.set("v", "H", "0")
