@@ -58,7 +58,7 @@
 | vim-bookmarks | 本体のマーク（`mA` などの大文字マークはファイルをまたげる） |
 | winresizer | `<C-w>+` / `<C-w>>` にカウントを付ける |
 | nvim-tree | netrw。ファジー検索があればツリーの出番は減る |
-| which-key | キー操作を覚えたら不要 |
+| which-key | キー操作を覚えたら不要（spec 0002 で戻した） |
 | mason / mason-lspconfig | 言語サーバーを npm / brew で直接入れる（要検討、未決事項参照） |
 | telekasten | 自作の notes プラグイン（別紙「notes プラグイン自作計画」） |
 
@@ -69,7 +69,7 @@
 | scrollbar / satellite | **機能が重複**。最低限の方針なら両方外す |
 | nvim-web-devicons | nvim-tree などの依存。それらを外せば不要 |
 | indent-blankline / vim-colorizer | あれば便利という位置づけ |
-| markview / markdown-preview | 必要になったら戻す |
+| markview / markdown-preview | 必要になったら戻す（spec 0002 で戻した） |
 | treesitter | 任意。従来の syntax と LSP の semantic tokens でも実用上困らない |
 
 ## 5. 移行手順
