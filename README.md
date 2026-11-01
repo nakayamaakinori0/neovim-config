@@ -27,6 +27,7 @@ lua/config/
 lua/plugins/<name>.lua   # プラグインごとの setup()
 lua/custom/codetour/     # 自作プラグイン
 docs/specs/              # 開発計画（NNNN-<title>.md）
+docs/usage/              # 使い方メモ（<topic>.md）
 ```
 
 ## プラグイン
