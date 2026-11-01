@@ -19,7 +19,7 @@ Neovim 0.12 の設定。プラグイン管理は本体の `vim.pack`。方針は
 - `vim.pack` は依存を解決しないので、依存されるプラグインを配列の前に置く
 - build が要るプラグインは `plugins.lua` の `PackChanged` autocmd に書く
 - LSP は `lua/config/lsp.lua` に `vim.lsp.config` / `vim.lsp.enable` で書く
-- キーマップはできるだけ標準に寄せる。標準のキーを上書きするのは `H` / `L` だけにしていて、新しく上書きするときは理由をコメントに書く
+- キーマップはできるだけ標準に寄せる。独自のキーは `jj` と `H` / `L` だけにしていて、新しく上書きするときは理由をコメントに書く
 - キーマップはすべて `lua/config/keymaps.lua` に書く。プラグインの関数は押したときに `require` する（keymaps.lua はプラグインより先に読まれるため）。LSP のキーマップは同ファイルの `LspAttach` でバッファごとに張る
 - CLI ツール（LSP サーバー・フォーマッター）は brew で入れる。npm のグローバルインストールと mason は使わない
 
