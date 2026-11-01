@@ -14,8 +14,6 @@ vim.keymap.set("n", "<leader>r", ":%s///gc<Left><Left><Left><Left>", { desc = "R
 vim.keymap.set("n", "<leader>e", "<cmd>Lexplore<CR>", { desc = "Toggle file tree" })
 
 -- Buffers
-vim.keymap.set("n", "<Tab>", "<cmd>bnext<CR>", { desc = "Next buffer" })
-vim.keymap.set("n", "<S-Tab>", "<cmd>bprevious<CR>", { desc = "Previous buffer" })
 vim.keymap.set("n", "<localleader>bx", "<cmd>bdelete<CR>", { desc = "Close current buffer" })
 
 -- Range indent

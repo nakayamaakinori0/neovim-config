@@ -72,7 +72,7 @@ TypeScript 7 のプロジェクトと `node_modules` がない場所では `ts_l
 | キー | 動作 |
 |---|---|
 | `<leader><space>` / `<leader>/` / `<leader>G` | ファイル検索 / grep / glob 付き grep |
-| `<Tab>` / `<S-Tab>` / `,bx` | 次 / 前のバッファ / バッファを閉じる |
+| `]b` / `[b` / `,bx` | 次 / 前のバッファ（標準） / バッファを閉じる |
 | `,bt` | バッファ一覧（telescope） |
 | `gd` / `gr` / `K` | 定義 / 参照 / ホバー |
 | `]h` / `[h` / `<leader>ghp` | 次 / 前のハンク / ハンクのプレビュー |
