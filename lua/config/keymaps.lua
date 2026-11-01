@@ -22,10 +22,6 @@ vim.keymap.set("n", "<localleader>bx", "<cmd>bdelete<CR>", { desc = "Close curre
 vim.keymap.set("v", "<", "<gv")
 vim.keymap.set("v", ">", ">gv")
 
--- Split
-vim.keymap.set("n", "<leader>s", ":split<CR>", { desc = "Split window below", remap = true })
-vim.keymap.set("n", "<leader>v", ":vsplit<CR>", { desc = "Split window right", remap = true })
-
 vim.keymap.set("n", "<localleader>tt", ":term<CR>", { desc = "Open terminal" })
 
 vim.keymap.set("n", "<leader>fy", function()
