@@ -2,6 +2,8 @@
 
 Neovim 本体の機能を最大限使い、プラグインは最低限にした設定。方針は [docs/specs/0001](docs/specs/0001-neovim-rearchitecture.md)。
 
+構造は [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)、読む順番は [docs/読み方ガイドライン.md](docs/読み方ガイドライン.md) にある。
+
 ## 必要なもの
 
 - Neovim 0.12 以上
