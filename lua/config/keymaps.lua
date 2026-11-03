@@ -17,6 +17,11 @@ vim.keymap.set("n", "<leader>e", "<cmd>Lexplore<CR>", { desc = "Toggle file tree
 -- ディレクトリを渡すと、開いていても閉じずにそこへ移る（閉じるのは <leader>e）
 vim.keymap.set("n", "<leader>E", "<cmd>Lexplore %:p:h<CR>", { desc = "File tree (current file dir)" })
 
+-- Esc を押すまで Ctrl+w を効かせ続ける（which-key の Hydra モード）。標準では Ctrl+w は直後の 1 キーにしか効かず、リサイズのたびに押し直すため
+vim.keymap.set("n", "<leader>W", function()
+  require("which-key").show({ keys = "<c-w>", loop = true })
+end, { desc = "Window mode (Esc で抜ける)" })
+
 -- Buffers
 vim.keymap.set("n", "<localleader>bx", "<cmd>bdelete<CR>", { desc = "Close current buffer" })
 
