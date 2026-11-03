@@ -14,6 +14,8 @@ vim.keymap.set("n", "<leader>r", ":%s///gc<Left><Left><Left><Left>", { desc = "R
 
 -- ファイラーは本体の netrw。左にツリーを開閉する
 vim.keymap.set("n", "<leader>e", "<cmd>Lexplore<CR>", { desc = "Toggle file tree" })
+-- ディレクトリを渡すと、開いていても閉じずにそこへ移る（閉じるのは <leader>e）
+vim.keymap.set("n", "<leader>E", "<cmd>Lexplore %:p:h<CR>", { desc = "File tree (current file dir)" })
 
 -- Buffers
 vim.keymap.set("n", "<localleader>bx", "<cmd>bdelete<CR>", { desc = "Close current buffer" })
