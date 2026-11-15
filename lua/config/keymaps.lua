@@ -1,4 +1,4 @@
--- キーマップはできるだけ標準に寄せる。標準にない独自のキーは jj と H / L だけ
+-- キーマップはできるだけ標準に寄せる。標準にない独自のキーは jj と H / L と Ctrl+h/j/k/l だけ
 -- jj は標準のキーを潰さない（挿入モードで j を 2 回続けて打つことはほぼない）
 vim.keymap.set("i", "jj", "<Esc>")
 -- H / L を残すのは、0 / $ が押しにくい割に、上書きされる標準の H / L（画面の上端 / 下端へ移動）は出番が少ないため
@@ -11,6 +11,13 @@ vim.keymap.set("n", "<leader>q", ":q<cr>", { desc = "Quit window" })
 vim.keymap.set("n", "<leader>o", "o<Esc>")
 vim.keymap.set("n", "<leader>O", "O<Esc>")
 vim.keymap.set("n", "<leader>r", ":%s///gc<Left><Left><Left><Left>", { desc = "Replace in file" })
+
+-- Ctrl+h/j/k/l でウィンドウ移動。netrw・エディタ・diff の間を頻繁に行き来するので、2 打の Ctrl+w h では遅い
+-- 潰れる標準のキーは Ctrl+l（再描画。:redraw! で代用）だけで、Ctrl+h/j/k はノーマルモードでは h/j/Enter と同じ
+vim.keymap.set("n", "<C-h>", "<C-w>h", { desc = "Go to left window" })
+vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = "Go to lower window" })
+vim.keymap.set("n", "<C-k>", "<C-w>k", { desc = "Go to upper window" })
+vim.keymap.set("n", "<C-l>", "<C-w>l", { desc = "Go to right window" })
 
 -- ファイラーは本体の netrw。左にツリーを開閉する
 vim.keymap.set("n", "<leader>e", "<cmd>Lexplore<CR>", { desc = "Toggle file tree" })
