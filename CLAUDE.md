@@ -12,7 +12,7 @@ Neovim 0.12 の設定。プラグイン管理は本体の `vim.pack`。方針は
 - ファイル名は `NNNN-<kebab-case-title>.md`（4 桁連番）。詳細は `docs/specs/README.md`
 
 ## 使い方メモ
-- Neovim の使い方メモは `docs/usage/<kebab-case-topic>.md` に話題ごとに書く（番号なし）。追加したら `docs/usage/README.md` の一覧にも足す
+- Neovim の使い方メモは `docs/usage/<kebab-case-topic>.md` に話題ごとに書く（番号なし）
 
 ## 書き方の決まり
 - プラグインを足すときは `lua/config/plugins.lua` の `vim.pack.add()` に追加し、`lua/plugins/<name>.lua` で `setup()` を明示的に呼ぶ
