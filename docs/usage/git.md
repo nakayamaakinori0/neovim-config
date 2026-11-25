@@ -2,6 +2,8 @@
 
 AI が書いた変更や過去のコミットを、左右に並べて読む。Neovim 本体の `nvim.difftool` を `git difftool -d` から開く。プラグインは使わない。
 
+差分を見るのは `git difftool -d` に揃える。gitsigns は、変わった行の印と、その場所への移動・元に戻す・blame にだけ使う。
+
 ## 見たい範囲を指定して開く
 
 ターミナル（herdr の pane）で打つ。範囲の書き方は `git diff` と同じ。
@@ -38,12 +40,11 @@ git difftool -d main...<branch>      # ブランチ（PR と同じ範囲）
 
 `~/.gitconfig` は dotfiles で管理していないので、別の Mac ではこれを書き足す。
 
-## 開いているファイルの中の変更（gitsigns）
+## 開いているファイルの変わった行（gitsigns）
 
 | キー | 動作 |
 |---|---|
 | `]h` / `[h` | 次 / 前の変わった部分へ |
-| `<leader>ghp` | 変わる前と後を小さい窓で見る |
 | `<leader>ghr` | その部分だけ元に戻す |
 | `<leader>ghb` | その行の blame |
 
