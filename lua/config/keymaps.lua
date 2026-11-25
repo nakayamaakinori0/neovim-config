@@ -81,11 +81,6 @@ vim.keymap.set("n", "<leader>ghp", "<cmd>Gitsigns preview_hunk<CR>", { desc = "P
 vim.keymap.set("n", "<leader>ghb", function()
   require("gitsigns").blame_line({ full = true })
 end, { desc = "Blame Line" })
-vim.keymap.set("n", "<leader>ghd", "<cmd>Gitsigns diffthis<CR>", { desc = "Diff This" })
-vim.keymap.set("n", "<leader>ghD", function()
-  require("gitsigns").diffthis("~")
-end, { desc = "Diff This ~" })
-vim.keymap.set({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>", { desc = "Select Hunk" })
 
 -- Conform
 vim.keymap.set("n", "<leader>cf", function()
