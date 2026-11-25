@@ -67,7 +67,7 @@ TypeScript 7 のプロジェクトと `node_modules` がない場所では `ts_l
 | プラグイン削除 | `plugins.lua` から消して `:lua vim.pack.del({ "名前" })` |
 | 更新を戻す | `git checkout -- nvim-pack-lock.json` → `:restart` → `:lua vim.pack.update(nil, { target = "lockfile" })` |
 | パーサー更新 | `:TSUpdate` |
-| 整形 | `<leader>cf` |
+| 整形 | `,cf` |
 
 ## 主なキーマップ
 

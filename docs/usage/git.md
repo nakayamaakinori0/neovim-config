@@ -45,8 +45,8 @@ git difftool -d main...<branch>      # ブランチ（PR と同じ範囲）
 | キー | 動作 |
 |---|---|
 | `]h` / `[h` | 次 / 前の変わった部分へ |
-| `<leader>ghr` | その部分だけ元に戻す |
-| `<leader>ghb` | その行の blame |
+| `,gr` | その部分だけ元に戻す |
+| `,gb` | その行の blame |
 
 ## ステージ・コミット・rebase など
 
