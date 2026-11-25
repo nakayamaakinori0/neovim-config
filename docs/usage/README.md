@@ -15,3 +15,4 @@ Neovim の使い方メモ。この設定で実際に使う操作を、話題ご�
 | [insert-mode.md](insert-mode.md) | 挿入モードでの削除・補完・矩形挿入 |
 | [buffer.md](buffer.md) | バッファの切り替えとジャンプリスト |
 | [window.md](window.md) | ウィンドウの分割・移動・閉じる・大きさ（Ctrl+w 系） |
+| [git.md](git.md) | git の差分を左右に並べて読む（`git difftool -d`）、gitsigns |

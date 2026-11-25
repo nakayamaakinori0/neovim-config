@@ -16,7 +16,8 @@
 | 全文検索からの置換 | `:grep` + quickfix（`:cdo`） | 本体 |
 | コメントアウト | `gc` | 本体 |
 | ファジー検索 | telescope | プラグイン |
-| Git | gitsigns、fugitive | プラグイン |
+| 差分を左右に並べて読む | `nvim.difftool`（`git difftool -d` から開く） | 本体 |
+| 行ごとの git の変更表示 | gitsigns | プラグイン |
 | 整形 | conform | プラグイン |
 | Markdown の表示 | markview、markdown-preview | プラグイン |
 | キーの一覧表示 | which-key | プラグイン |

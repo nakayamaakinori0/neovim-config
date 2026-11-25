@@ -39,7 +39,6 @@ docs/usage/              # 使い方メモ（<topic>.md）
 | solarized.nvim | カラースキーム |
 | telescope.nvim（+ plenary, fzf-native） | ファイル検索・grep・バッファ一覧 |
 | gitsigns.nvim | git 差分を行単位で表示 |
-| vim-fugitive | `:Git` |
 | vim-surround | 囲み編集 |
 | nvim-lspconfig | LSP サーバーの既定設定 |
 | lazydev.nvim | Neovim の Lua API の補完 |
@@ -81,6 +80,6 @@ TypeScript 7 のプロジェクトと `node_modules` がない場所では `ts_l
 | `,bt` | バッファ一覧（telescope） |
 | `gd` / `gr` / `K` | 定義 / 参照 / ホバー |
 | `]h` / `[h` / `<leader>ghp` | 次 / 前のハンク / ハンクのプレビュー |
-| `<leader>gs` | `:Git` |
+| ターミナルで `git difftool -d <範囲>` | コミット・ブランチ・手元の差分を左右に並べて読む（[使い方](docs/usage/git.md)） |
 | `,mv` / `,mp` | Markdown の整形表示 / ブラウザでプレビュー |
 | `v` の中で `an` / `in` | treesitter のノード単位で選択を広げる / 狭める |

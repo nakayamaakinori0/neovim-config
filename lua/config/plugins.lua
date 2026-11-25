@@ -36,7 +36,6 @@ vim.pack.add({
   gh("nvim-telescope/telescope.nvim"),
   gh("nvim-telescope/telescope-fzf-native.nvim"),
   gh("lewis6991/gitsigns.nvim"),
-  gh("tpope/vim-fugitive"),
   gh("tpope/vim-surround"),
   gh("neovim/nvim-lspconfig"),
   gh("folke/lazydev.nvim"),

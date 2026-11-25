@@ -87,11 +87,6 @@ vim.keymap.set("n", "<leader>ghD", function()
 end, { desc = "Diff This ~" })
 vim.keymap.set({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>", { desc = "Select Hunk" })
 
--- Fugitive
-vim.keymap.set("n", "<leader>gs", "<cmd>Git<CR>", { desc = "Git status" })
-vim.keymap.set("n", "<leader>gc", "<cmd>Git commit<CR>", { desc = "Git commit" })
-vim.keymap.set("n", "<leader>gp", "<cmd>Git push<CR>", { desc = "Git push" })
-
 -- Conform
 vim.keymap.set("n", "<leader>cf", function()
   require("conform").format({ async = true })

@@ -41,6 +41,10 @@ vim.opt.undolevels = 10000
 vim.opt.updatetime = 200
 vim.opt.virtualedit = "block"
 vim.opt.wildmode = "longest:full,full"
+-- 左右の diff（git difftool -d、gitsigns の diffthis）で、行の中の変わった文字だけ光らせる。既定だと行全体が光るだけで、どこが変わったか探しにくい
+-- linematch は、変更前後の行の対応を揃える。既定だとずれた行同士が並んで読みにくい
+-- linematch を入れると、3 方向の diff の d2o / d3o で衝突の印が残る。衝突は印を手で直すので、読みやすさを優先した
+vim.opt.diffopt = { "internal", "filler", "closeoff", "algorithm:histogram", "linematch:60", "inline:char" }
 vim.opt.completeopt = { "menuone", "noselect", "popup", "fuzzy" }
 vim.opt.winminwidth = 5
 vim.opt.linebreak = true -- 単語の途中で折り返さない（見やすくなる）
