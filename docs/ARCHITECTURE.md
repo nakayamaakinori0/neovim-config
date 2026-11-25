@@ -19,7 +19,6 @@
 | 差分を左右に並べて読む | `nvim.difftool`（`git difftool -d` から開く） | 本体 |
 | 行ごとの git の変更表示 | gitsigns | プラグイン |
 | 整形 | conform | プラグイン |
-| Markdown の表示 | markview、markdown-preview | プラグイン |
 | キーの一覧表示 | which-key | プラグイン |
 
 ## 2. 起動の流れ
@@ -69,7 +68,7 @@ docs/usage/               使い方メモ（<topic>.md）
 | 追加 | `vim.pack.add({ ... })` に URL を足す。初回起動時に `~/.local/share/nvim/site/pack/core/opt/` へ clone される |
 | 固定 | `nvim-pack-lock.json` にコミットが記録される。git で管理しているので、別のマシンでも同じ版になる |
 | 依存 | **解決しない**。依存されるプラグイン（plenary）を配列の前に置く |
-| build | `PackChanged` autocmd で、インストール・更新のときにだけ実行する（fzf-native の `make`、markdown-preview のバイナリ取得、treesitter の `:TSUpdate`） |
+| build | `PackChanged` autocmd で、インストール・更新のときにだけ実行する（fzf-native の `make`、treesitter の `:TSUpdate`） |
 | 設定 | `vim.pack.add()` の後に `require("plugins.<name>")` を並べ、各ファイルで `setup()` を呼ぶ |
 
 遅延読み込みはしない。プラグインが 14 個と少なく、起動時間への影響が小さいため。

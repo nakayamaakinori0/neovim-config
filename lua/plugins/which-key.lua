@@ -6,7 +6,6 @@ require("which-key").setup({
     { "<leader>g", group = "git" },
     { "<leader>gh", group = "hunks" },
     { "<localleader>b", group = "buffer" },
-    { "<localleader>m", group = "markdown" },
     { "<localleader>t", group = "tour/terminal" },
   },
 })
