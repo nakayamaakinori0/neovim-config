@@ -21,7 +21,7 @@ Neovim 0.12 の設定。プラグイン管理は本体の `vim.pack`。方針は
 - LSP は `lua/config/lsp.lua` に `vim.lsp.config` / `vim.lsp.enable` で書く
 - キーマップはできるだけ標準に寄せる。標準のキーを上書きするのは `jj` と `H` / `L` と `Ctrl+h/j/k/l`（VS Code の中では `j` / `k` も）だけにしていて、新しく上書きするときは理由をコメントに書く
 - よく使うキーは `<leader>`（`<Space>`）+ 1 文字、たまに使うキーは `,`（localleader）+ 2 文字にする。`<leader>` の後ろを 2 文字以上にしない
-- キーマップはすべて `lua/config/keymaps.lua` に書く。プラグインの関数は押したときに `require` する（keymaps.lua はプラグインより先に読まれるため）。LSP のキーマップは同ファイルの `LspAttach` でバッファごとに張る
+- キーマップはすべて `lua/config/keymaps.lua` に書く（VS Code の中の分は `lua/config/vscode.lua`。nvim の設定とは共通にしない）。プラグインの関数は押したときに `require` する（keymaps.lua はプラグインより先に読まれるため）。LSP のキーマップは同ファイルの `LspAttach` でバッファごとに張る
 - CLI ツール（LSP サーバー・フォーマッター）は brew で入れる。npm のグローバルインストールと mason は使わない
 
 ## 開発コマンド

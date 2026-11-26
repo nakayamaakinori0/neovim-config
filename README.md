@@ -26,6 +26,7 @@ lua/config/
   autocmds.lua           # オートコマンド
   plugins.lua            # vim.pack.add() と各プラグイン設定の読み込み
   lsp.lua                # vim.lsp.config / vim.lsp.enable、補完
+  vscode.lua             # VS Code の中（vscode-neovim）ではこれだけ読む
 lua/plugins/<name>.lua   # プラグインごとの setup()
 lua/custom/codetour/     # 自作プラグイン
 docs/specs/              # 開発計画（NNNN-<title>.md）
@@ -71,7 +72,7 @@ TypeScript 7 のプロジェクトと `node_modules` がない場所では `ts_l
 
 ## VS Code（vscode-neovim）
 
-VS Code でも vscode-neovim でこの設定を読む。キーは nvim と同じで、VS Code のコマンドに割り当てている（`keymaps.lua` の `if vim.g.vscode then`）。`jj` だけは VS Code の `settings.json` に書く。
+VS Code の中（vscode-neovim）では `lua/config/vscode.lua` だけを読む。キーは nvim と同じで、VS Code のコマンドに割り当てている。`jj` だけは VS Code の `settings.json` に書く。
 
 ```jsonc
 "vscode-neovim.compositeKeys": {
