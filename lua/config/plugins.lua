@@ -5,6 +5,12 @@ local gh = function(repo)
   return "https://github.com/" .. repo
 end
 
+-- VS Code の中（vscode-neovim）では、編集の操作を足す vim-surround だけ読む。ほかは画面・検索・git・LSP のもので、VS Code が受け持つ
+if vim.g.vscode then
+  vim.pack.add({ gh("tpope/vim-surround") })
+  return
+end
+
 -- インストール時にも走らせるため、vim.pack.add() より前に登録する
 vim.api.nvim_create_autocmd("PackChanged", {
   callback = function(ev)

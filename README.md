@@ -69,6 +69,16 @@ TypeScript 7 のプロジェクトと `node_modules` がない場所では `ts_l
 | パーサー更新 | `:TSUpdate` |
 | 整形 | `,cf` |
 
+## VS Code（vscode-neovim）
+
+VS Code でも vscode-neovim でこの設定を読む。キーは nvim と同じで、VS Code のコマンドに割り当てている（`keymaps.lua` の `if vim.g.vscode then`）。`jj` だけは VS Code の `settings.json` に書く。
+
+```jsonc
+"vscode-neovim.compositeKeys": {
+  "jj": { "command": "vscode-neovim.escape" }
+}
+```
+
 ## 主なキーマップ
 
 | キー | 動作 |

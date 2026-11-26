@@ -41,6 +41,13 @@ init.lua
 - **keymaps がプラグインより前**: それでも動くように、プラグインの関数はキーを押したときに `require` している（6 章）
 - **lsp が最後**: `vim.lsp.config` の既定値を nvim-lspconfig（プラグイン）から読むため
 
+VS Code の中（vscode-neovim）でも同じ `init.lua` を読む。`vim.g.vscode` が立っているときは、画面・検索・git・LSP を VS Code が受け持つので、次のように絞る（spec 0008）。
+
+- **plugins.lua**: vim-surround だけ読む
+- **lsp.lua**: 読まない
+- **keymaps.lua**: 編集のキーは共通。プラグインのキーの代わりに、同じキーへ VS Code のコマンドを割り当てる
+- **autocmds.lua**: ウィンドウを揃える・最後の位置へ戻るを読まない
+
 ## 3. ファイルの担当
 
 ```
@@ -111,9 +118,10 @@ LSP がバッファにつながると（`LspAttach`）、2 か所で処理が走
 
 | 決まり | 理由 |
 |---|---|
-| 標準のキーを上書きするのは `jj` と `H` / `L` と `Ctrl+h/j/k/l`（ウィンドウ移動）だけ | 標準のキー操作をそのまま覚えるため。上書きするときは理由をコメントに書く |
+| 標準のキーを上書きするのは `jj` と `H` / `L` と `Ctrl+h/j/k/l`（ウィンドウ移動）だけ。VS Code の中では `j` / `k` も（畳んだ範囲を開かずに動くため） | 標準のキー操作をそのまま覚えるため。上書きするときは理由をコメントに書く |
 | プラグインの関数は `function() require(...)... end` で包む | keymaps.lua はプラグインより先に読まれるため |
 | LSP のキーは `LspAttach` でバッファごとに張る | 全体に張ると、LSP のないファイルで本体の `gd` などを潰すため |
+| VS Code の中のキーは `if vim.g.vscode then` の中に、nvim と同じキーで書く | nvim と VS Code で同じ手癖で操作するため。`jj` だけは `settings.json` の `vscode-neovim.compositeKeys` に書く |
 | よく使うキーは `<leader>`（`<Space>`）+ 1 文字、たまに使うキーは `,` + 2 文字 | よく使うものほど短く押せるようにする。`<leader>` の後ろを 2 文字以上にしない |
 | 接頭辞ごとにグループにする | which-key の表示名を `plugins/which-key.lua` で付けている |
 
